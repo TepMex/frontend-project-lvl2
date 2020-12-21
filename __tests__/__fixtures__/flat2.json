@@ -1,0 +1,6 @@
+{
+    "follow": false,
+    "host": "hexlet.ru",
+    "timeout": 256,
+    "ip": "127.0.0.1"
+}

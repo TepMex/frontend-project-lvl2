@@ -4,7 +4,7 @@
   "description": "hexlet frontend lvl2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "type": "module",
   "repository": {
@@ -22,5 +22,14 @@
   "homepage": "https://github.com/TepMex/frontend-project-lvl2#readme",
   "dependencies": {
     "commander": "6.2.1"
+  },
+  "devDependencies": {
+    "@jest/globals": "^26.6.2",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3"
   }
 }
