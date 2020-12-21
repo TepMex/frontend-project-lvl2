@@ -1,0 +1,26 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "hexlet frontend lvl2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TepMex/frontend-project-lvl2.git"
+  },
+  "keywords": [
+    "hexlet"
+  ],
+  "author": "Mikhail Semikolenov (TepMex)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TepMex/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/TepMex/frontend-project-lvl2#readme",
+  "dependencies": {
+    "commander": "6.2.1"
+  }
+}

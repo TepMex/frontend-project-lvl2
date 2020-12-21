@@ -1,2 +1,4 @@
-### Hexlet tests and linter status:
-![Actions Status](/workflows/hexlet-check/badge.svg)
+# Игры разума
+Hexlet.io, фронтенд, уровень 2
+
+Чтобы стать наставником Hexlet, нужно пройти путь студента
