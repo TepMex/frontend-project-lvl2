@@ -1,3 +1,3 @@
-import runGendiffUtil from '../src/gendiff.js';
+import runGendiffUtil from '../src/cli.js';
 
 runGendiffUtil(process.argv);

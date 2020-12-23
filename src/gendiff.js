@@ -1,11 +1,21 @@
-import { program } from 'commander';
+import { readFileSync } from 'fs';
+import path from 'path';
 
-const runGenDiff = (argv) => {
-  program.description('Compares two configuration files and shows a difference.')
-    .version('0.0.1')
-    .option('-f, --format [type]', 'output format')
-    .arguments('<filepath1> <filepath2>')
-    .parse(argv);
+function genStrDiff(str1, str2, format) {
+  if (format === 'JSON') {
+    return 'yoba';
+  }
+  return '';
+}
+
+function genFilesDiff(filepath1, filepath2, format) {
+  const string1 = readFileSync(path.resolve(process.cwd(), filepath1)).toString();
+  const string2 = readFileSync(path.resolve(process.cwd(), filepath2)).toString();
+
+  return genStrDiff(string1, string2, format);
+}
+
+export {
+  genFilesDiff,
+  genStrDiff,
 };
-
-export default runGenDiff;
