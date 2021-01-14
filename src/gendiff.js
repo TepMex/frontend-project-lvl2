@@ -1,32 +1,39 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 
+function generateDiffString({
+  key, val1, val2, has1, has2,
+}) {
+  if (has2 && has1 && val1 !== val2) {
+    return `  - ${key}: ${val1}
+  + ${key}: ${val2}`;
+  }
+
+  if (has1 && has2) {
+    return `    ${key}: ${val1}`;
+  }
+
+  if (has1) {
+    return `  - ${key}: ${val1}`;
+  }
+
+  return `  + ${key}: ${val2}`;
+}
+
 function getJSONDiff(obj1, obj2) {
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
   const allKeys = Array.from(new Set(keys1.concat(keys2))).sort();
 
-  const diffStrings = allKeys.map((key) => {
-    const existInFirst = keys1.includes(key);
-    const existInSecond = keys2.includes(key);
-    const existInBoth = existInFirst && existInSecond;
-    const existInBothAndHasDifferentValue = existInBoth && obj1[key] !== obj2[key];
+  const changes = allKeys.map((key) => ({
+    key,
+    val1: obj1[key],
+    val2: obj2[key],
+    has1: key in obj1,
+    has2: key in obj2,
+  }));
 
-    if (existInBothAndHasDifferentValue) {
-      return `  - ${key}: ${obj1[key]}
-  + ${key}: ${obj2[key]}`;
-    }
-
-    if (existInBoth) {
-      return `    ${key}: ${obj1[key]}`;
-    }
-
-    if (existInFirst) {
-      return `  - ${key}: ${obj1[key]}`;
-    }
-
-    return `  + ${key}: ${obj2[key]}`;
-  });
+  const diffStrings = changes.map(generateDiffString);
 
   return `{
 ${diffStrings.join('\n')}
